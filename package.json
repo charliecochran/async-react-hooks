@@ -1,0 +1,26 @@
+{
+  "name": "async-react-hooks",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charliecochran/async-react-hooks.git"
+  },
+  "keywords": [
+    "async",
+    "react",
+    "hooks",
+    "useAsyncCallback",
+    "useAsyncEffect"
+  ],
+  "author": "Charlie Cochran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/charliecochran/async-react-hooks/issues"
+  },
+  "homepage": "https://github.com/charliecochran/async-react-hooks#readme"
+}
