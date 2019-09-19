@@ -22,10 +22,10 @@ const Demo = () => {
       {loading && <div>Loading...</div>}
       {error && (
         <div>
-          Error: {error}. <button onClick={refetch}>Try again.</button>
+          Error: {error} <button onClick={refetch}>Try again.</button>
         </div>
       )}
-      {data && <div>{data}</div>}
+      {data && <div>{data} <button onClick={refetch}>Refresh</button></div>}
     </div>
   );
 };
