@@ -22,5 +22,15 @@
   "bugs": {
     "url": "https://github.com/charliecochran/async-react-hooks/issues"
   },
-  "homepage": "https://github.com/charliecochran/async-react-hooks#readme"
+  "homepage": "https://github.com/charliecochran/async-react-hooks#readme",
+  "peerDependencies": {
+    "react": "^16.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.14.3",
+    "prettier": "1.18.2"
+  }
 }
