@@ -8,12 +8,13 @@ const useAsyncCallback = (asyncCallback, dependencies) => {
 			setResult({
 				data: await asyncCallback(...args),
 				loading: false,
+				refetch: () => callback(...args),
 			});
 		} catch (error) {
 			setResult({
 				error,
 				loading: false,
-				retry: () => callback(...args),
+				refetch: () => callback(...args),
 			});
 		}
 	}, dependencies);
