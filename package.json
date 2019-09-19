@@ -1,8 +1,8 @@
 {
   "name": "async-react-hooks",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "babel -d dist/ src/",
     "test": "echo \"Error: no test specified\" && exit 1"
