@@ -1,5 +1,7 @@
 # async-react-hooks
 
+[![npm](https://badgen.net/npm/v/async-react-hooks)](https://www.npmjs.com/package/async-react-hooks)
+
 ## useAsyncCallback
 
 ### Basic example
