@@ -2,48 +2,51 @@ import { useCallback, useEffect, useState } from 'react';
 
 const useAsyncCallback = (asyncCallback, dependencies) => {
 	const [result, setResult] = useState({ loading: false });
-	const callback = useCallback(async function callback(...args) {
+	const callback = useCallback(function callback(...args) {
 		setResult({ loading: true });
-		try {
-			setResult({
-				data: await asyncCallback(...args),
-				loading: false,
-				refetch: () => callback(...args),
+
+		Promise.resolve(asyncCallback(...args))
+			.then((data) => {
+				setResult({
+					data,
+					loading: false,
+					refetch: () => callback(...args),
+				});
+			})
+			.catch((error) => {
+				setResult({
+					error,
+					loading: false,
+					refetch: () => callback(...args),
+				});
 			});
-		} catch (error) {
-			setResult({
-				error,
-				loading: false,
-				refetch: () => callback(...args),
-			});
-		}
 	}, dependencies);
 
 	return [callback, result];
 };
 
-const runAsyncEffect = async (asyncEffect, setState, refetch) => {
+const runAsyncEffect = (asyncEffect, setState, refetch) => {
 	let cancelled = false;
 
-	try {
-		const data = await asyncEffect();
-
-		if (!cancelled) {
-			setState({
-				data,
-				loading: false,
-				refetch,
-			});
-		}
-	} catch (error) {
-		if (!cancelled) {
-			setState({
-				error,
-				loading: false,
-				refetch,
-			});
-		}
-	}
+	Promise.resolve(asyncEffect())
+		.then((data) => {
+			if (!cancelled) {
+				setState({
+					data,
+					loading: false,
+					refetch,
+				});
+			}
+		})
+		.catch((error) => {
+			if (!cancelled) {
+				setState({
+					error,
+					loading: false,
+					refetch,
+				});
+			}
+		});
 
 	return () => {
 		cancelled = true;
