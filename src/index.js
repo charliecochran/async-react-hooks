@@ -59,7 +59,7 @@ const useAsyncEffect = (asyncEffect, dependencies = []) => {
 
 	useEffect(() => {
 		setState({ loading: true });
-		runAsyncEffect(asyncEffect, setState, () => setTimestamp(Date.now()));
+		return runAsyncEffect(asyncEffect, setState, () => setTimestamp(Date.now()));
 	}, [timestamp, ...dependencies]);
 
 	return state;
