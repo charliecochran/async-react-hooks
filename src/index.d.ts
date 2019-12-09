@@ -6,7 +6,7 @@ interface Result<TData = any, TError = Error | string> {
 }
 
 type AnyFunction = (...args: any[]) => any;
-type Callback<TParams = any[]> = (...args: TParams) => void;
+type Callback<TParams extends any[] = any[]> = (...args: TParams) => void;
 
 export function useAsyncCallback(asyncCallback: AnyFunction, deps?: ReadonlyArray<any>): [Callback, Result];
 export function useAsyncCallback<TData>(
